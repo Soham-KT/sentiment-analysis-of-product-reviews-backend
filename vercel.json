@@ -1,5 +1,18 @@
 {
-    "rewrites": [
-        { "source": "/(.*)", "destination": "api/index.py" }
-      ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "/simple-server.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/simple-server.py"
+    }
+  ]
 }

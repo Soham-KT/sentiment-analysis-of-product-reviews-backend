@@ -3,7 +3,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from data_loader import ModelLoader, TokenizerLoader
 import re
-from nltk.corpus import stopwords
+# from nltk.corpus import stopwords
 
 
 TAG_RE = re.compile(r'<[^>]+>')
@@ -28,7 +28,9 @@ def preprocess_text(text):
     sentence = re.sub(r'\s+', ' ', sentence).strip()  # collapse multiple spaces
 
     # remove stopwords
-    stop_words = set(stopwords.words('english'))
+    with open('data/stop_words.txt', 'rb') as f:
+        stop_words = pk.load(f)
+        
     sentence = ' '.join([word for word in sentence.split() if word not in stop_words])
     
     return sentence
@@ -48,3 +50,13 @@ if __name__ == '__main__':
     text = "This DVD will be a disappointment if you get it hoping to see some substantial portion of the acts of the various comics listed on the cover. All you get here are snippets of performance, at best. The rest is just loose-leaf reminiscence about the good old days in Boston, in the early 80's, when a lot of comics were hanging out together and getting their start.It's like a frat house reunion. There's a lot of lame nostalgia. There are quite a few guffaws recalling jokes (practical and otherwise)perpetrated - back then. But you had to have been there to appreciate all the basically good ol' boy camaraderie. If you weren't actually a part of that scene, all this joshing and jostling will fall flat.If you want to actually hear some of these comics' routines - you will have to look elsewhere."
     
     print(model_predict(text))
+    
+    # stpwrds = set(stopwords.words('english'))
+    
+    # with open('data/stop_words.txt', 'wb') as f:
+    #     pk.dump(stpwrds, f)
+        
+    # with open('data/stop_words.txt', 'rb') as f:
+    #     words = pk.load(f)
+        
+    # print('YES' if stpwrds == words else 'NO')
