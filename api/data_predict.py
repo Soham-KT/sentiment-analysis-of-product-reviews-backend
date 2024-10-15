@@ -8,11 +8,11 @@ import re
 
 TAG_RE = re.compile(r'<[^>]+>')
 
-MODEL_LOADER = ModelLoader.get_instance()
-lstm_model = MODEL_LOADER.get_data()
-
 TOKENIZER_LOADER = TokenizerLoader.get_instance()
 lstm_tokenizer = TOKENIZER_LOADER.get_data()
+
+MODEL_LOADER = ModelLoader.get_instance()
+lstm_model = MODEL_LOADER.get_data()
 
 def remove_tags(text):
     return TAG_RE.sub('', text)

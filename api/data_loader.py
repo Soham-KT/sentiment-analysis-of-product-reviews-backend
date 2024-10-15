@@ -13,7 +13,7 @@ class ModelLoader:
     def __init__(self) -> None:
         if ModelLoader._instance is not None:
             raise Exception('This is a singleton')
-        self.model = tf.keras.models.load_model('/models/lstm_model_enhanced.h5')
+        self.model = tf.keras.models.load_model('models/lstm_model_enhanced_.h5')
         
     def get_data(self):
         return self.model
@@ -31,7 +31,7 @@ class TokenizerLoader:
     def __init__(self) -> None:
         if TokenizerLoader._instance is not None:
             raise Exception('This is a singleton')
-        with open('/data/tokenizer.pkl', 'rb') as f:
+        with open('data/tokenizer.pkl', 'rb') as f:
             self.tokenizer = pk.load(f)
         
     def get_data(self):
