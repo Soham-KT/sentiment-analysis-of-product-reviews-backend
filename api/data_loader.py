@@ -1,6 +1,9 @@
 import tensorflow as tf
 import dill as pk
+import os
 
+
+base_dir = os.path.dirname(__file__)
 class ModelLoader:
     _instance = None
     
@@ -13,7 +16,9 @@ class ModelLoader:
     def __init__(self) -> None:
         if ModelLoader._instance is not None:
             raise Exception('This is a singleton')
-        self.model = tf.keras.models.load_model('api/lstm_model_enhanced.h5')
+        
+        model_path = os.path.join(base_dir, 'lstm_model_enhanced.h5')
+        self.model = tf.keras.models.load_model(model_path)
         
     def get_data(self):
         return self.model
@@ -31,8 +36,16 @@ class TokenizerLoader:
     def __init__(self) -> None:
         if TokenizerLoader._instance is not None:
             raise Exception('This is a singleton')
-        with open('api/tokenizer.pkl', 'rb') as f:
+        
+        tokenizer_path = os.path.join(base_dir, 'tokenizer.pkl')
+        with open(tokenizer_path, 'rb') as f:
             self.tokenizer = pk.load(f)
         
     def get_data(self):
         return self.tokenizer
+    
+if __name__ == '__main__':
+    tokenizer_path = os.path.join(base_dir, 'tokenizer.pkl')
+    model_path = os.path.join(base_dir, 'lstm_model_enhanced.h5')
+    
+    print(tokenizer_path, model_path)
