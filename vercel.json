@@ -5,7 +5,7 @@
       "src": "/simple-server.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "50mb"
+        "maxLambdaSize": "350mb"
       }
     }
   ],
