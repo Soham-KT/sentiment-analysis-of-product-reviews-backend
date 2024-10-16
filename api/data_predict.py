@@ -28,7 +28,7 @@ def preprocess_text(text):
     sentence = re.sub(r'\s+', ' ', sentence).strip()  # collapse multiple spaces
 
     # remove stopwords
-    with open('stop_words.txt', 'rb') as f:
+    with open('api/stop_words.txt', 'rb') as f:
         stop_words = pk.load(f)
         
     sentence = ' '.join([word for word in sentence.split() if word not in stop_words])
