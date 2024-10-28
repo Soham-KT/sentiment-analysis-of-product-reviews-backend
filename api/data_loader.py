@@ -17,7 +17,7 @@ class ModelLoader:
         if ModelLoader._instance is not None:
             raise Exception('This is a singleton')
         
-        model_path = os.path.join(base_dir, 'lstm_model_enhanced.h5')
+        model_path = os.path.join(base_dir, 'lstm_model_new.keras')
         self.model = tf.keras.models.load_model(model_path)
         
     def get_data(self):
@@ -46,6 +46,6 @@ class TokenizerLoader:
     
 if __name__ == '__main__':
     tokenizer_path = os.path.join(base_dir, 'tokenizer.pkl')
-    model_path = os.path.join(base_dir, 'lstm_model_enhanced.h5')
+    model_path = os.path.join(base_dir, 'lstm_model_new.keras')
     
     print(tokenizer_path, model_path)

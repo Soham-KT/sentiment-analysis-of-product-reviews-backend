@@ -41,7 +41,12 @@ def model_predict(text, tokenizer=lstm_tokenizer, model=lstm_model):
     sequence = tokenizer.texts_to_sequences([clean_text])
     padded_sequence = pad_sequences(sequence, maxlen=100)
     prediction = model.predict(padded_sequence)
-    prediction = 'Negative' if prediction< 0.5 else 'Positive'
+    if prediction > 0.5:
+        prediction = 'Positive'
+    elif prediction < 0.5:
+        prediction = 'Negative'
+    else:
+        prediction = 'Neutral'
     
     return prediction
 
