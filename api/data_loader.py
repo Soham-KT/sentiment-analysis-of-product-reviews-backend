@@ -8,8 +8,8 @@ import os
 load_dotenv()
 
 
-AWS_ACCESS_KEY=os.getenv('access_key')
-AWS_SECRET_KEY=os.getenv('secret_key')
+AWS_ACCESS_KEY=os.getenv('aws_access_key')
+AWS_SECRET_KEY=os.getenv('aws_secret_key')
 BUCKET_NAME="testing-public-full-access-bucket"
 
 
