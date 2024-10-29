@@ -1,6 +1,16 @@
 import tensorflow as tf
 import dill as pk
 import os
+import s3fs
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
+AWS_ACCESS_KEY=os.getenv('AWS_ACCESS_KEY')
+AWS_SECRET_KEY=os.getenv('AWS_SECRET_KEY')
+BUCKET_NAME="testing-public-full-access-bucket"
 
 
 base_dir = os.path.dirname(__file__)
@@ -17,8 +27,15 @@ class ModelLoader:
         if ModelLoader._instance is not None:
             raise Exception('This is a singleton')
         
-        model_path = os.path.join(base_dir, 'lstm_model_new.keras')
-        self.model = tf.keras.models.load_model(model_path)
+        fs = s3fs.S3FileSystem(key=AWS_ACCESS_KEY, secret=AWS_SECRET_KEY)
+        
+        for file in fs.ls(BUCKET_NAME):
+            if file == 'testing-public-full-access-bucket/lstm_model_new.keras':
+                fs.download(file, 'lstm_model.keras')
+                break
+            
+        self.model = tf.keras.models.load_model('lstm_model.keras')
+        os.remove('lstm_model.keras')
         
     def get_data(self):
         return self.model
