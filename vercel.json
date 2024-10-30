@@ -1,11 +1,11 @@
 {
   "builds": [
     {
-      "src": "wsgi_handler.py",
-      "use": "@vercel/python"
+      "src": "index.py",
+      "use": "@vercel/flask"
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "wsgi_handler.py" }
+    { "src": "/(.*)", "dest": "index.py" }
   ]
 }
