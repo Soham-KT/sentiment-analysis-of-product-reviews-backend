@@ -1,9 +1,16 @@
 {
   "version": 2,
   "functions": {
-      "api/index.py": {
-          "runtime": "python3.12",
-          "maxDuration": 30
-      }
-  }
+    "api/index.py": {
+      "runtime": "python3.12",
+      "maxDuration": 30
+    }
+  },
+  "outputDirectory": "public",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/index.py"
+    }
+  ]
 }
