@@ -1,18 +1,11 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "/simple-server.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "350mb"
-      }
+      "src": "wsgi_handler.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/simple-server.py"
-    }
+    { "src": "/(.*)", "dest": "wsgi_handler.py" }
   ]
 }
