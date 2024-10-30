@@ -24,4 +24,10 @@ def predict():
     text = request.form['review']
     prediction = model_predict(text=text)
     
-    return render_template('index.html', prediction_text = f'pred : {prediction}')
+    data = {
+        'review' : text,
+        'prediction': prediction
+    }
+    
+    # return render_template('index.html', prediction_text = f'pred : {prediction}')
+    return jsonify(data)
