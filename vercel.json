@@ -4,5 +4,11 @@
       "api/index.py": {
           "runtime": "python3.8"
       }
-  }
+  },
+  "builds": [
+        {
+            "src": "api/index.py",
+            "use": "@vercel/python"
+        }
+    ]
 }
