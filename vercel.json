@@ -7,6 +7,5 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "index.py" }
-  ],
-  "python_version": "3.9"
+  ]
 }
