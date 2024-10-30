@@ -2,13 +2,9 @@
   "version": 2,
   "functions": {
       "api/index.py": {
-          "runtime": "python3.8"
+          "runtime": "python3.8",
+          "memory": 128,
+          "maxDuration": 10
       }
-  },
-  "builds": [
-        {
-            "src": "api/index.py",
-            "use": "@vercel/python"
-        }
-    ]
+  }
 }
