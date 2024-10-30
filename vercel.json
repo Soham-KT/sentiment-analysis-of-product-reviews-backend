@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.py": {
-      "runtime": "python3.12",
-      "maxDuration": 30
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
     }
-  },
-  "outputDirectory": "public",
+  ],
   "routes": [
     {
       "src": "/(.*)",
