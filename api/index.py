@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from data_predict import model_predict
 from flask_cors import CORS
 
@@ -32,5 +32,4 @@ def predict():
     # return render_template('index.html', prediction_text = f'pred : {prediction}')
     return jsonify(data)
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=True, port=8082, threaded=True) 
+app = app
