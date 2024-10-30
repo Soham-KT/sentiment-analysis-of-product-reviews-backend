@@ -2,9 +2,8 @@
   "version": 2,
   "functions": {
       "api/index.py": {
-          "runtime": "python3.8",
-          "memory": 128,
-          "maxDuration": 10
+          "runtime": "python3.12",
+          "maxDuration": 30
       }
   }
 }
