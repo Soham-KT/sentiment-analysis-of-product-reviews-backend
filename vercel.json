@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "builds": [
     {
       "src": "api/app.py",
@@ -11,5 +10,9 @@
       "src": "/(.*)",
       "dest": "api/app.py"
     }
-  ]
+  ],
+  "env": {
+    "FLASK_APP": "api/app.py"
+  },
+  "start": "python -m flask run"
 }
