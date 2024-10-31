@@ -31,6 +31,3 @@ def predict():
     
     # return render_template('index.html', prediction_text = f'pred : {prediction}')
     return jsonify(data)
-
-if __name__ == '__main__':
-    app = app
