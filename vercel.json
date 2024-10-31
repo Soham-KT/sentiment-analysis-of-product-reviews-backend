@@ -11,5 +11,8 @@
       "src": "/(.*)",
       "dest": "api/app.py"
     }
-  ]
+  ],
+  "env": {
+    "FLASK_APP": "api/app.py"
+  }
 }
