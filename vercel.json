@@ -13,6 +13,5 @@
   ],
   "env": {
     "FLASK_APP": "api/app.py"
-  },
-  "start": "python -m flask run"
+  }
 }
